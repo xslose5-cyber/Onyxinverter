@@ -51,51 +51,43 @@ export function ManufacturerLogos() {
   const duplicatedManufacturers = [...manufacturers, ...manufacturers];
 
   return (
-    <section className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-700">
+    <section className="bg-white border-y border-gray-100 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 상단 타이틀 */}
-        <div className="text-center pt-6 pb-2">
-          <span className="text-sm sm:text-base text-blue-400 tracking-[0.2em] uppercase">
+        <div className="text-center mb-4">
+          <span className="text-xs text-gray-400 font-semibold tracking-[0.2em] uppercase">
             Global Inverter Partners
           </span>
         </div>
 
-        {/* 자동 스크롤 로고 영역 */}
         <div
           ref={scrollRef}
-          className="flex overflow-hidden gap-6 sm:gap-10 py-5"
+          className="flex overflow-hidden gap-8 sm:gap-12"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {duplicatedManufacturers.map((manufacturer, index) => (
             <div
               key={`scroll-${index}`}
-              className="group flex-shrink-0 flex flex-col items-center justify-center cursor-default px-6 sm:px-8 py-4 rounded-lg border border-transparent hover:border-gray-600 hover:bg-white/5 transition-all duration-300"
+              className="group flex-shrink-0 flex flex-col items-center justify-center cursor-default px-4 sm:px-6 py-3 rounded-lg hover:bg-gray-50 transition-all duration-300"
             >
               <span
-                className="text-2xl sm:text-3xl text-white whitespace-nowrap transition-all duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]"
-                style={{
-                  fontFamily: "'Arial', 'Helvetica', sans-serif",
-                  fontWeight: 700,
-                  letterSpacing: "0.05em",
-                }}
+                className="text-xl sm:text-2xl text-gray-400 group-hover:text-gray-700 whitespace-nowrap transition-all duration-300 font-bold tracking-wide"
               >
                 {manufacturer.name}
               </span>
               {manufacturer.subName && (
-                <span className="text-sm text-gray-300 group-hover:text-white mt-1 transition-colors">
+                <span className="text-xs text-gray-300 group-hover:text-gray-500 mt-0.5 transition-colors">
                   {manufacturer.subName}
                 </span>
               )}
               <div
-                className="w-8 h-0.5 mt-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="w-6 h-0.5 mt-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ backgroundColor: manufacturer.color }}
               />
             </div>
           ))}
         </div>
 
-        {/* 하단 안내 */}
-        <div className="text-center pb-5">
+        <div className="text-center mt-3">
           <span className="text-xs text-gray-400">
             그 외 다양한 제조사 인버터 취급 가능
           </span>
