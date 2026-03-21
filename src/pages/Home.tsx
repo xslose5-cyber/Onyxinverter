@@ -5,6 +5,7 @@ import { Services } from "../components/Services";
 import { ManufacturerLogos } from "../components/ManufacturerLogos";
 import { About } from "../components/About";
 import { Testimonials } from "../components/Testimonials";
+import { ApplicableFacilities } from "../components/ApplicableFacilities";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
 
@@ -13,10 +14,11 @@ export function Home() {
     <div className="min-h-screen">
       <Header />
       <main>
+        <ManufacturerLogos />
         <Hero />
+        <ApplicableFacilities />
         <ImageGallery />
         <Services />
-        <ManufacturerLogos />
         <About />
         <Testimonials />
         <Contact />

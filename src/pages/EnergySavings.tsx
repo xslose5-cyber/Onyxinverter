@@ -3,7 +3,7 @@ import { Footer } from "../components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { Zap, TrendingDown, Leaf, DollarSign, Award, Shield, FileCheck, ArrowRight } from "lucide-react";
+import { Zap, TrendingDown, Leaf, DollarSign, Award, Shield, FileCheck, ArrowRight, Banknote } from "lucide-react";
 
 const benefits = [
   {
@@ -165,24 +165,24 @@ export function EnergySavings() {
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   <div className="text-center p-4 bg-white rounded-lg shadow">
-                    <div className="text-3xl mb-2">🏆</div>
+                    <Award className="h-8 w-8 text-yellow-500 mx-auto mb-2" />
                     <h3 className="mb-2">고효율인증</h3>
                     <p className="text-sm text-gray-600">산업통상자원부 공식 인증</p>
                   </div>
 
                   <div className="text-center p-4 bg-white rounded-lg shadow">
-                    <div className="text-3xl mb-2">💵</div>
+                    <Banknote className="h-8 w-8 text-green-600 mx-auto mb-2" />
                     <h3 className="mb-2">보조금 지원</h3>
                     <p className="text-sm text-gray-600">지자체별 설치 보조금</p>
                   </div>
 
                   <div className="text-center p-4 bg-white rounded-lg shadow">
-                    <div className="text-3xl mb-2">⚡</div>
+                    <Zap className="h-8 w-8 text-orange-500 mx-auto mb-2" />
                     <h3 className="mb-2">전기요금 할인</h3>
                     <p className="text-sm text-gray-600">최대 10% 전기요금 절감</p>
                   </div>
                   <div className="text-center p-4 bg-white rounded-lg shadow">
-                    <div className="text-3xl mb-2">🌱</div>
+                    <Leaf className="h-8 w-8 text-green-500 mx-auto mb-2" />
                     <h3 className="mb-2">탄소배출권</h3>
                     <p className="text-sm text-gray-600">탄소배출권 거래 가능</p>
                   </div>

@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 export default function App() {
   useEffect(() => {
-    document.title = '오닉스엔지니어링 | 전국 인버터 설치·유지보수 전문';
+    document.title = 'ONYX | 전국 인버터 설치·유지보수 전문';
   }, []);
 
   return (
