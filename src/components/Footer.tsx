@@ -61,8 +61,14 @@ export function Footer() {
                 <span>서비스 지역: 전국</span>
               </div>
               <div className="flex items-center text-slate-400">
-                <span className="ml-7">사업자등록번호: 610-87-03367</span>
-              </div>
+    <span className="ml-7">상호명: (주)오닉스엔지니어링</span>
+</div>
+<div className="flex items-center text-slate-400">
+    <span className="ml-7">대표자: 최한규</span>
+</div>
+<div className="flex items-center text-slate-400">
+    <span className="ml-7">사업자등록번호: 610-87-03367</span>
+</div>
             </div>
           </div>
 
