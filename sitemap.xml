@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.onyxeng.kr/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://www.onyxeng.kr/assets/img/hero-panel.jpg</image:loc><image:title>오닉스 인버터 제어반</image:title></image:image>
+    <image:image><image:loc>https://www.onyxeng.kr/assets/img/panel-row-dc.jpg</image:loc><image:title>기계실 인버터 제어반 열</image:title></image:image>
+    <image:image><image:loc>https://www.onyxeng.kr/assets/img/hero-person.jpg</image:loc><image:title>오닉스 현장 엔지니어</image:title></image:image>
+  </url>
+  <url><loc>https://www.onyxeng.kr/#lineup</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.onyxeng.kr/#field</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.onyxeng.kr/#spec</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.onyxeng.kr/#faq</loc><lastmod>2026-09-07</lastmod></url>
+</urlset>

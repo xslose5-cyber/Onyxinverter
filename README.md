@@ -1,11 +1,66 @@
+# ONYX Engineering 웹사이트 (랜딩페이지)
 
-  # ONYX INVERTER
+인버터 제어반 전문 기업 오닉스엔지니어링의 단일 페이지 사이트입니다. ZARA·젠틀몬스터식 여백·무채색·사진 중심 편집 스타일을 기준으로 삼았습니다.
 
-  This is a code bundle for ONYX INVERTER. The original project is available at https://www.figma.com/design/02yzr2rU8yVf8OHBcKDxnS/ONYX-INVERTER.
+```
+ONYX_웹사이트/
+├─ index.html          # 랜딩페이지 본문 (구조화 데이터 포함)
+├─ robots.txt          # 검색·AI 크롤러 허용 규칙 + 사이트맵 위치
+├─ sitemap.xml         # 사이트맵
+├─ llms.txt            # AI 검색·답변 엔진용 회사 요약(핵심 사실 정리)
+├─ assets/
+│  ├─ css/style.css
+│  ├─ js/main.js       # 절감 계산기·플로팅 버튼·트래킹
+│  └─ img/             # 카탈로그 결과물 이미지 + 실제 시공 사진(r01–r06) + 생성 제어반·인버터 사진
+└─ README.md
+```
 
-  ## Running the code
+## 연락 방식
+- 대표전화 **010-7135-8901** 하나로 통일했습니다. 모든 버튼이 전화로 연결됩니다.
+- 이메일(onyx3378@naver.com)은 텍스트로만 표시되며, 메일 앱을 여는 링크는 없습니다.
+- 카카오톡 상담 메뉴는 제거했습니다. 연락 수단은 전화와 이메일(텍스트)뿐입니다.
 
-  Run `npm i` to install the dependencies.
+## 페이지 순서
+1. 상단바 · 내비게이션(전화 버튼)
+2. **2분할 스트립**: 인버터 제어반 사진 + 냉각탑 사진
+3. 히어로: 인물 사진 + "인버터 제어반, 설계부터 유지보수까지" + 전화·이메일·상담시간
+4. 방문 목적 4분기 (절감 / 제작·견적 / OEM·ESCO / 긴급)
+4-1. **전국 무료 방문 점검** 밴드 (서울·경기·인천·대전·대구·광주·울산·부산·제주)
+5. 절감 원리 (3제곱 법칙)
+6. 절감 계산기 (검정 배경)
+7. 인버터 제어반 라인업 4종 (AH 시리즈에 히터제어 복합제어반 포함)
+8. 시공 사진 18장: 실제 시공 사진 6장 추가, 여백 없이 화면 폭 전체 3열, 흑백 처리, 제목은 사진 안에 표시
+9. 데이터센터 냉각 배너
+10. Why Onyx 6가지
+11. OEM 협력
+12. **ESCO 사업 파트너**
+13. 서비스 절차
+14. 사양 (로고 없는 인버터 사진, 7개 제조사 비교표·적용 시설 모두 펼침)
+15. FAQ 9문항 (모두 펼침) — 구형 인버터 호환 교체, 시설관리팀 문의 항목 포함
+16. 지금 결정해야 하는 이유
+17. 문의 (전화·이메일 텍스트·전국 방문 점검·지도)
 
-  Run `npm run dev` to start the development server.
-  
+## 신규 생성 이미지 (AI 생성, 로고·문자 없음)
+- `inverter-drive.jpg` 사양 섹션 인버터 단품 (ABB 계열 디자인을 참고한 무로고 이미지)
+- `panel-row-dc.jpg` 상단 스트립 우측, 기계실 제어반 열
+- `panel-outdoor-sus.jpg` 냉각탑 옥외 SUS 제어반
+- `panel-ahu-heater.jpg` 공조기 히터제어 복합제어반
+
+실제 ABB 제품 사진을 쓰시려면 ABB의 사용 허락이 필요합니다. 자체 촬영 사진이 있으면 `assets/img/inverter-drive.jpg`를 같은 이름으로 교체하면 됩니다.
+
+## AI 검색 대응
+- `schema.org` Organization · ProfessionalService · OfferCatalog(4개 시리즈) · FAQPage · WebSite 구조화 데이터
+- `robots.txt`에 GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Yeti(네이버) 등 명시 허용
+- `llms.txt`에 회사 핵심 사실을 요약 (AI 답변 엔진이 인용하기 쉬운 형태)
+- 모든 이미지에 설명형 alt 텍스트, 의미 있는 제목 계층(h1·h2·h3)
+- 배포 후 할 일: 네이버 서치어드바이저·구글 서치콘솔에 사이트맵 제출, 구글 비즈니스 프로필·네이버 플레이스 등록(전화·주소 일치)
+
+## 문구 중 확인이 필요한 항목
+- "영업일 1일 내 회신", "Day 3–5 현장 진단 / Day 7–10 제안서"는 운영 가능한 기준으로 조정하세요.
+- 절감 계산기의 인버터 손실 3%, 설비별 기본 회전수는 `main.js`의 `SPEED_PRESET`에서 조정합니다.
+
+## 로컬 미리보기
+```bash
+python -m http.server 8765 --directory ONYX_웹사이트
+```
+정적 파일이므로 어떤 웹호스팅에도 폴더째 올리면 됩니다. 도메인 확정 후 `canonical`·`og:url`·`sitemap.xml`·`robots.txt`의 주소를 맞춰 주세요.
