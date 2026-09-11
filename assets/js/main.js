@@ -6,10 +6,6 @@
 const CONFIG = {
   // Google Analytics 4 측정 ID (예: 'G-XXXXXXXXXX'). 비워 두면 콘솔에만 기록합니다.
   GA_ID: '',
-  // 절감 계산기 기본 전기요금 단가 (원/kWh)
-  DEFAULT_PRICE: 180,
-  // 탄소 배출계수 (tCO₂/MWh)
-  CO2_FACTOR: 0.4594,
 };
 
 /* ---------- 유틸 ---------- */
@@ -73,53 +69,6 @@ if ('IntersectionObserver' in window) {
   $$('.rv').forEach((el) => rv.observe(el));
 } else {
   $$('.rv').forEach((el) => el.classList.add('in'));
-}
-
-/* ---------- 절감 계산기 ---------- */
-const calc = {
-  kw: $('#c_kw'), n: $('#c_n'), type: $('#c_type'), h: $('#c_h'), d: $('#c_d'),
-  price: $('#c_price'), speed: $('#c_speed'), speedV: $('#c_speed_v'), inv: $('#c_inv'),
-  oWon: $('#o_won'), oPct: $('#o_pct'), oBase: $('#o_base'), oSave: $('#o_save'),
-  oCo2: $('#o_co2'), oPay: $('#o_pay'), o10y: $('#o_10y'),
-};
-// 설비 종류별 평균 필요 회전수 프리셋 (경험적 기본값)
-const SPEED_PRESET = { ct: 80, ahu: 75, pump: 78, fan: 72 };
-
-function runCalc() {
-  const kw = Math.max(0, parseFloat(calc.kw.value) || 0);
-  const n = Math.max(0, parseInt(calc.n.value, 10) || 0);
-  const h = Math.min(24, Math.max(0, parseFloat(calc.h.value) || 0));
-  const d = Math.min(365, Math.max(0, parseFloat(calc.d.value) || 0));
-  const price = Math.max(0, parseFloat(calc.price.value) || CONFIG.DEFAULT_PRICE);
-  const r = (parseInt(calc.speed.value, 10) || 100) / 100;
-  const inv = Math.max(0, parseFloat(calc.inv.value) || 0);
-
-  calc.speedV.textContent = Math.round(r * 100) + '%';
-
-  const base = kw * n * h * d;                          // kWh/년
-  const frac = Math.max(0, 1 - Math.pow(r, 3) - 0.03);  // 절감률 (인버터 손실 3% 반영)
-  const save = base * frac;
-  const won = save * price;                             // 원/년
-  const co2 = (save / 1000) * CONFIG.CO2_FACTOR;        // tCO₂
-
-  calc.oWon.textContent = fmt(won / 10000);
-  calc.oPct.textContent = fmt(frac * 100, 1);
-  calc.oBase.textContent = fmt(base);
-  calc.oSave.textContent = fmt(save);
-  calc.oCo2.textContent = fmt(co2, 1);
-  calc.o10y.textContent = fmt((won * 10) / 10000);
-
-  let payText = '일반적으로 6개월–2년';
-  if (inv > 0 && won > 0) {
-    const months = (inv / won) * 12;
-    payText = months < 1 ? '1개월 미만' : months < 24 ? `약 ${fmt(months, 1)}개월` : `약 ${fmt(months / 12, 1)}년`;
-  }
-  calc.oPay.textContent = payText;
-}
-if (calc.kw) {
-  Object.values(calc).forEach((el) => { if (el && el.tagName && /INPUT|SELECT/.test(el.tagName)) el.addEventListener('input', runCalc); });
-  calc.type.addEventListener('change', () => { calc.speed.value = SPEED_PRESET[calc.type.value] || 80; runCalc(); });
-  runCalc();
 }
 
 /* ---------- 플로팅 버튼 / 모바일 바: 문의 섹션이 보이면 숨김 ---------- */

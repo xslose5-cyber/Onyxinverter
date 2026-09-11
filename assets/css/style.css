@@ -280,7 +280,7 @@ ul{margin:0;padding:0;list-style:none}
 .gallery figure:hover img{transform:scale(1.03);filter:grayscale(.4) contrast(1.04)}
 @media (prefers-reduced-motion:reduce){.gallery img{transition:none}}
 .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 20px;font-size:14px;font-weight:500;color:#f2f2ef;letter-spacing:-0.01em;background:linear-gradient(0deg,rgba(14,14,15,.62),rgba(14,14,15,0))}
-.field.sec{padding-bottom:0}
+.field.sec{padding-bottom:0;padding-top:72px;border-top:1px solid var(--hair)}
 .field .sec-head{margin-bottom:48px}
 
 /* ---- why ---- */
