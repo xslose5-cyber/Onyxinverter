@@ -29,6 +29,8 @@
 ## 취급 인버터 제조사
 LS Electric, ABB, Danfoss, Schneider Electric, Yaskawa, Mitsubishi Electric, Hyundai Electric (브랜드 중립, 고객 표준 우선)
 
+호환 교체·수리 대응 모델: LS iG5A·iC5·iS7·S100·H100·G100 / ABB ACS580·ACS880·ACH580·ACS380·ACS480 / Danfoss VLT FC 102·FC 302·FC 51·VACON / Mitsubishi FR-E800·FR-A800·FR-F800·FR-D700 / Hyundai N700E·N5000
+
 ## 공통 사양
 - 전원 3Φ 380 V(440 V 대응), 50/60 Hz, MCCB, SPD
 - 외함 스틸 분체도장 또는 SUS304, 옥내 IP20–IP41 / 옥외 IP54, 자립형·벽부형
