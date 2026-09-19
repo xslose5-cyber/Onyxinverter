@@ -6,6 +6,8 @@
 const CONFIG = {
   // Google Analytics 4 측정 ID (예: 'G-XXXXXXXXXX'). 비워 두면 콘솔에만 기록합니다.
   GA_ID: '',
+  // Google Ads 전화 클릭 전환 (예: 'AW-17348793009/AbCdEfGhIjK'). Google Ads에서 전환 액션을 만들면 발급됩니다. 비워 두면 전환을 보내지 않습니다.
+  ADS_CALL_CONVERSION: '',
 };
 
 /* ---------- 유틸 ---------- */
@@ -104,6 +106,12 @@ if (nudge) {
   $('#nudgeClose').addEventListener('click', () => { close(); track('nudge_close'); });
   $$('#nudge a').forEach((a) => a.addEventListener('click', close));
 }
+
+/* ---------- 전화 클릭 → Google Ads 전환 ---------- */
+document.addEventListener('click', (e) => {
+  if (!CONFIG.ADS_CALL_CONVERSION || !e.target.closest('a[href^="tel:"]')) return;
+  if (typeof window.gtag === 'function') window.gtag('event', 'conversion', { send_to: CONFIG.ADS_CALL_CONVERSION });
+});
 
 /* ---------- 전화번호 클릭 시 클립보드 복사 (데스크톱에서 tel: 미지원 대비) ---------- */
 $$('a[href^="tel:"]').forEach((a) => a.addEventListener('click', () => {
