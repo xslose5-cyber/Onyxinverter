@@ -7,7 +7,7 @@ const CONFIG = {
   // Google Analytics 4 측정 ID (예: 'G-XXXXXXXXXX'). 비워 두면 콘솔에만 기록합니다.
   GA_ID: '',
   // Google Ads 전화 클릭 전환 (예: 'AW-17348793009/AbCdEfGhIjK'). Google Ads에서 전환 액션을 만들면 발급됩니다. 비워 두면 전환을 보내지 않습니다.
-  ADS_CALL_CONVERSION: '',
+  ADS_CALL_CONVERSION: 'AW-17348793009/p5qKCLCTg_0cELGlxtBA',
 };
 
 /* ---------- 유틸 ---------- */
